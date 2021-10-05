@@ -1,8 +1,6 @@
 name: check-and-bump-upstream-box-version
 on:
-  push:
-    branches: [main]
-  schedule: [cron: '19 */3 * * *']
+  schedule: [cron: '19 */4 * * *']
 jobs:
   bump-box-version:
     runs-on: macos-10.15
