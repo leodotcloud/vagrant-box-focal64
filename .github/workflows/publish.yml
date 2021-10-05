@@ -16,3 +16,7 @@ jobs:
         run: ./scripts/up
       - name: Package the machine
         run: ./scripts/package
+      - name: Publish the box
+        run: ./scripts/publish
+        env:
+          VAGRANT_TOKEN: ${{ secrets.VAGRANT_TOKEN }}
