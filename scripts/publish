@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# This logic is to make sure, we can build directly from CLI
+if [ -z ${VERSION_SET+x} ];then
+    source $(dirname $0)/version
+fi
+
+source $(dirname $0)/variables
+
+cd $(dirname $0)/../box
+
+REPO=${REPO:-"leodotcloud"}
+BOX=${BOX:-"bionic64"}
+PROVIDER="virtualbox"
+
+echo "Publishing vagrant box"
+if [ -z ${DRY_RUN+x} ];then
+  vagrant cloud publish ${REPO}/${BOX} ${VERSION} ${PROVIDER} ./box/bionic64.box --release --force
+else
+  echo "vagrant cloud publish ${REPO}/${BOX} ${VERSION} ${PROVIDER} ./box/bionic64.box --release --force"
+  echo "dry run, no action taken"
+fi
