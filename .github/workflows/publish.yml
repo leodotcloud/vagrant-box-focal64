@@ -14,9 +14,7 @@ jobs:
         run: ./scripts/validate
       - name: Bring up the machine
         run: ./scripts/up
-      - name: Package the machine
-        run: ./scripts/package
-      - name: Publish the box
-        run: ./scripts/publish
+      - name: Package and publish the machine
+        run: ./scripts/package-publish
         env:
           VAGRANT_TOKEN: ${{ secrets.VAGRANT_TOKEN }}
