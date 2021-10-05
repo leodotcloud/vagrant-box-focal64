@@ -19,8 +19,8 @@ PROVIDER="virtualbox"
 echo "Publishing vagrant box"
 if [ -z ${DRY_RUN+x} ];then
   vagrant cloud auth login --token ${VAGRANT_TOKEN}
-  vagrant cloud publish ${REPO}/${BOX} ${VERSION} ${PROVIDER} ./box/${OUTPUT_BOX} --release --force
+  vagrant cloud publish ${REPO}/${BOX} ${VERSION} ${PROVIDER} ${OUTPUT_BOX} --release --force
 else
-  echo "vagrant cloud publish ${REPO}/${BOX} ${VERSION} ${PROVIDER} ./box/${OUTPUT_BOX} --release --force"
+  echo "vagrant cloud publish ${REPO}/${BOX} ${VERSION} ${PROVIDER} ${OUTPUT_BOX} --release --force"
   echo "dry run, no action taken"
 fi
