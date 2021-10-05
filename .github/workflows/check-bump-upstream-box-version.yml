@@ -1,0 +1,17 @@
+name: check-and-bump-upstream-box-version
+on:
+  push:
+    branches: [main]
+  schedule: [cron: '19 */3 * * *']
+jobs:
+  bump-box-version:
+    runs-on: macos-10.15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
+      - name: Bump upstream box version
+        run: ./scripts/bump-upstream-version
+        env:
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
