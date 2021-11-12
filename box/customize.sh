@@ -8,5 +8,6 @@ vim
 export DEBIAN_FRONTEND=noninteractive;curl -sSL https://releases.rancher.com/install-docker/"${DOCKER_VERSION}".sh | sh -
 sudo usermod -aG docker vagrant
 
+# This doesn't seme to be working. TODO: Debug later.
 # Add SSH public keys
-curl https://github.com/leodotcloud.keys >> ${HOME}/.ssh/authorized_keys
+# curl https://github.com/leodotcloud.keys >> ${HOME}/.ssh/authorized_keys
