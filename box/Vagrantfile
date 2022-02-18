@@ -1,11 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+base_box = "ubuntu/focal64"
 box_version = ENV.fetch('BOX_VERSION')
 docker_version = ENV.fetch('DOCKER_VERSION')
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = base_box
   config.vm.box_version = box_version
   config.vm.box_check_update = false
 
