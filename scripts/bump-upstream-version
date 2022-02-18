@@ -2,14 +2,14 @@
 
 cd $(dirname $0)/..
 
-REMOTE_BOX_VERSION=$(vagrant cloud search --provider virtualbox --json "ubuntu/bionic64" | jq '.[] | select(.name == "ubuntu/bionic64") | .version' | tr -d '"')
+REMOTE_BOX_VERSION=$(vagrant cloud search --provider virtualbox --json "ubuntu/focal64" | jq '.[] | select(.name == "ubuntu/focal64") | .version' | tr -d '"')
 
 if grep -q "${REMOTE_BOX_VERSION}" box_version; then
   echo "No new version released by upstream"
 else
   echo "Found new upstream version: ${REMOTE_BOX_VERSION}"
   if [ -z ${DRY_RUN+x} ];then
-    REPO=${GITHUB_REPOSITORY:-"leodotcloud/vagrant-box-bionic64"}
+    REPO=${GITHUB_REPOSITORY:-"leodotcloud/vagrant-box-focal64"}
     INPUT_BRANCH=main
     ACTOR=leodotcloud
     REMOTE="https://${ACTOR}:${MY_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"

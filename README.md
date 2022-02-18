@@ -1,1 +1,1 @@
-# vagrant-box-bionic64
+# vagrant-box-focal64
